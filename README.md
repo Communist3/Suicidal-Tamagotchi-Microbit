@@ -1,5 +1,5 @@
 # Tamagotchi-Microbit
-This is an old school tamagotchi remade using a BBC Microbit. 
+This is an old school tamagotchi remade using a BBC Microbit. The game involves a user trying to sustain and keep a creature alive. The creature will get sleepy and tired, and the player must feed and put the creature to bed to make it happy again. If it remains unhappy for too long, the creature will die and the game will be over, it also gets progressively more difficult as the creature leveles up and the game continues. We have made use of the two onboard buttons for the microbit. The button on the left(ButtonA) feeds the creature, while the button on the right(ButtonB) puts the creature to sleep. 
 The code:                     
 
 from microbit import * <br>
@@ -141,3 +141,4 @@ while True: <br>
             sleep(1000)
 
 
+The source for the original idea: https://static1.squarespace.com/static/533a5f1be4b00bb34469c085/t/5ae6f3c00e2e72dfd92a15dd/1525085122048/Tamagotchi.pdf 
