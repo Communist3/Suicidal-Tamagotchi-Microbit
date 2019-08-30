@@ -1,60 +1,71 @@
 # Tamagotchi-Microbit
-This is an old school tamagotchi remade using a BBC Microbit.
-The code:
+This is an old school tamagotchi remade using a BBC Microbit.It has a user attempt to keep a digital creature alive as long as possible, by feeding and putting it to sleep when it is tired or hungry. If the creature remains tired or hungry.The two buttons have been utilised on the microbit, the button on the left(buttonA) feeds the pet, and the button on the left(buttonB) puts it to sleep.
+The code:                     
+
 from microbit import *
 import random
+import music
 happyFace=Image("00000:"
                 "09090:"
                 "00000:"
                 "90009:"
                 "99999")
-
 happyLeft=Image("00000:"
-                "90900:"
+                "09090:"
                 "00000:"
                 "90009:"
                 "99999")
-
 happyRight=Image("00000:"
                  "00909:"
                  "00000:"
                  "90009:"
                  "99999")
-
-unhappy=Image("00000:"
+unhappyFace=Image("00000:"
               "09090:"
               "00000:"
               "99999:"
               "90009")
-
-deadFace=Image("90009:"
-               "09090:"
+deadFace=Image("00000:"
+               "99099:"
                "90009:"
                "00000:"
                "99999")
-
 tick=Image("00000:"
            "00009:"
            "00090:"
            "90900:"
            "09000")
-
 cross=Image("90009:"
             "09090:"
             "00900:"
             "09090:"
             "90009")
-
+lvlUp=Image("90090:"
+            "90999:"
+            "90090:"
+            "90090:"
+            "99090")
 happy=True
 hungry=False
 sleepy=False
-dead=False
+death=False
 eyeMovementState=0
-deathTimer=100
+deathTimer=1000
 eyeMoveChance=0
 eyeMoveState=0
+moodChance=0
+expCap=100
+expCount=0
+level=1
 
 while True:
+    if expCount>=expCap:
+        level+=1
+        expCount=0
+        expCap=expCap*2
+        display.show(lvlUp)
+        sleep(200)
+
     eyeMoveChance=random.randint(0,100)
     if eyeMoveChance<=10:
         eyeMovementState=2
@@ -72,15 +83,14 @@ while True:
             display.show(happyRight)
         sleep(2000)
 
-while True:
     if happy==True:
-        moodChance=random.ranint(0,5000)
+        moodChance=random.randint(1,50-level)
     
-    if moodChance<=1:
+    if moodChance<=1 and moodChance<=10:
         happy=False
         hungry=True
         sleepy=False
-    elif moodChance>1 and moodChance<=3:
+    elif moodChance>=10 and moodChance<=20:
         happy=False
         hungry=False
         sleepy=True
@@ -90,35 +100,44 @@ while True:
         sleepy=False
     
     if (hungry==True or sleepy==True) and deathTimer==0:
-        dead=True
-        #add music later
+        death=True
     
     if hungry==True or sleepy==True:
-        display.show(unhappy)
+        display.show(unhappyFace)
         deathTimer-=1
     
     if death==True:
-        display.show(dead)
+        display.show(deadFace)
+        music.play(music.FUNERAL)
         sleep(8000)
-        display.scroll("Game Over, you are a bad parent")
+        display.scroll("Game Over, you were unable to care for it")
 
-while True:
     if button_a.is_pressed():
         if hungry==True:
             happy=True
             hungry=False
             sleepy=False
-            deathTimer=100
+            deathTimer=1000
+            expCount+=100
             display.show(tick)
+            sleep(1000)
         else:
             display.show(cross)
-
+            deathTimer-=5
+            sleep(1000)
+    
     if button_b.is_pressed():
         if sleepy==True:
             happy=True
             hungry=False
             sleepy=False
-            deathTimer=100
+            deathTimer=1000
+            expCount+=100
             display.show(tick)
+            sleep(1000)
         else:
             display.show(cross)
+            deathTimer-=5
+            sleep(1000)
+
+
