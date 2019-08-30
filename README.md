@@ -1,5 +1,5 @@
 # Tamagotchi-Microbit
-This is an old school tamagotchi remade using a BBC Microbit.It has a user attempt to keep a digital creature alive as long as possible, by feeding and putting it to sleep when it is tired or hungry. If the creature remains tired or hungry.The two buttons have been utilised on the microbit, the button on the left(buttonA) feeds the pet, and the button on the left(buttonB) puts it to sleep.
+This is an old school tamagotchi remade using a BBC Microbit.
 The code:                     
 
 from microbit import *
