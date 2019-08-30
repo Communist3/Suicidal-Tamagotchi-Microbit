@@ -1,5 +1,5 @@
 # Tamagotchi-Microbit
-This is an old school tamagotchi remade using a BBC Microbit.
+This is an old school tamagotchi remade using a BBC Microbit. +
 The code:                     
 
 from microbit import *
