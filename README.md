@@ -1,5 +1,5 @@
 # Tamagotchi-Microbit
-This is an old school tamagotchi remade using a BBC Microbit. The game involves a user trying to sustain and keep a creature alive. The creature will get sleepy and tired, and the player must feed and put the creature to bed to make it happy again. If it remains unhappy for too long, the creature will die and the game will be over, it also gets progressively more difficult as the creature leveles up and the game continues. We have made use of the two onboard buttons for the microbit. The button on the left(ButtonA) feeds the creature, while the button on the right(ButtonB) puts the creature to sleep. 
+This is an old school tamagotchi remade using a BBC Microbit. The game involves a user trying to sustain and keep a creature alive. The creature will get sleepy and tired, and the player must feed and put the creature to bed to make it happy again. If it remains unhappy for too long, the creature will die and the game will be over, it also gets progressively more difficult as the creature leveles up and the game continues. We have made use of the two onboard buttons for the microbit. The button on the left(ButtonA) feeds the creature, while the button on the right(ButtonB) puts the creature to sleep. This was not an original idea, so we modified it by giving it a leveling system as well as tweaked the difficulty of the overall code, as well as added a diffferent death face, added music and a custom death text.<br>
 The code:                     
 
 from microbit import * <br>
@@ -140,5 +140,8 @@ while True: <br>
             deathTimer-=5
             sleep(1000)
 
-
+Testing Methods:<br>
+We went about testing the code by first setting the creature to be unhappy primarily, and seeing how long it would take to die. We then adjusted values accordingly until we were happy with the balance in the difficulty.We also tested the chances of the creature becoming unhappy and how that would affect gameplay. Errors that arose during testing were that the creature was perpetually happy, thus providing no difficulty to the game, thus making it unfun to play, we corrected this by putting all of the code in a forever loop.<br><br>
+Extensions:<br>
+We thought that it could be fun to add minigames, which would be played against the creature to give buffs and/or debuffs to the creature based off of the game and the performance of the player, for example if the creature was tired when a game is played, then once the game is over, it will be more likely to become tired more often. Another idea would be to give the creature a voice and a name, thus making it more personal and emotional if it dies.<br><br>
 The source for the original idea: https://static1.squarespace.com/static/533a5f1be4b00bb34469c085/t/5ae6f3c00e2e72dfd92a15dd/1525085122048/Tamagotchi.pdf 
