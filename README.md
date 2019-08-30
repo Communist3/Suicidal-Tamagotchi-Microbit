@@ -2,69 +2,69 @@
 This is an old school tamagotchi remade using a BBC Microbit. 
 The code:                     
 
-from microbit import *
-import random
-import music
-happyFace=Image("00000:"
-                "09090:"
-                "00000:"
-                "90009:"
-                "99999")
-happyLeft=Image("00000:"
-                "09090:"
-                "00000:"
-                "90009:"
-                "99999")
-happyRight=Image("00000:"
-                 "00909:"
-                 "00000:"
-                 "90009:"
-                 "99999")
-unhappyFace=Image("00000:"
-              "09090:"
-              "00000:"
-              "99999:"
-              "90009")
-deadFace=Image("00000:"
-               "99099:"
-               "90009:"
-               "00000:"
-               "99999")
-tick=Image("00000:"
-           "00009:"
-           "00090:"
-           "90900:"
-           "09000")
-cross=Image("90009:"
-            "09090:"
-            "00900:"
-            "09090:"
-            "90009")
-lvlUp=Image("90090:"
-            "90999:"
-            "90090:"
-            "90090:"
-            "99090")
-happy=True
-hungry=False
-sleepy=False
-death=False
-eyeMovementState=0
-deathTimer=1000
-eyeMoveChance=0
-eyeMoveState=0
-moodChance=0
-expCap=100
-expCount=0
-level=1
+from microbit import * <br>
+import random <br>
+import music <br>
+happyFace=Image("00000:" <br>
+                "09090:" <br>
+                "00000:" <br>
+                "90009:" <br>
+                "99999") <br>
+happyLeft=Image("00000:" <br>
+                "09090:" <br>
+                "00000:" <br>
+                "90009:" <br>
+                "99999") <br>
+happyRight=Image("00000:" <br>
+                 "00909:" <br> 
+                 "00000:" <br>
+                 "90009:" <br>
+                 "99999") <br>
+unhappyFace=Image("00000:" <br>
+              "09090:" <br>
+              "00000:" <br>
+              "99999:" <br>
+              "90009") <br>
+deadFace=Image("00000:" <br>
+               "99099:" <br>
+               "90009:" <br>
+               "00000:" <br>
+               "99999") <br>
+tick=Image("00000:" <br>
+           "00009:" <br>
+           "00090:" <br>
+           "90900:" <br>
+           "09000") <br>
+cross=Image("90009:" <br>
+            "09090:" <br>
+            "00900:" <br>
+            "09090:" <br>
+            "90009") <br> 
+lvlUp=Image("90090:" <br>
+            "90999:" <br>
+            "90090:" <br>
+            "90090:" <br> 
+            "99090") <br>
+happy=True <br>
+hungry=False <br>
+sleepy=False <br>
+death=False <br>
+eyeMovementState=0 <br>
+deathTimer=1000 <br>
+eyeMoveChance=0 <br>
+eyeMoveState=0 <br>
+moodChance=0 <br>
+expCap=100 <br>
+expCount=0 <br>
+level=1 <br>
 
-while True:
-    if expCount>=expCap:
-        level+=1
-        expCount=0
-        expCap=expCap*2
-        display.show(lvlUp)
-        sleep(200)
+while True: <br>
+    if expCount>=expCap: <br>
+        level+=1 <br>
+        expCount=0 <br>
+        expCap=expCap*2 <br>
+        display.show(lvlUp) <br>
+        sleep(200) <br>
 
     eyeMoveChance=random.randint(0,100)
     if eyeMoveChance<=10:
