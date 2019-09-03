@@ -20,11 +20,16 @@ happyRight=Image("00000:"
                  "00000:"
                  "90009:"
                  "99999")
-unhappyFace=Image("00000:"
+hungryFace=Image("00000:"
               "09090:"
               "00000:"
               "99999:"
               "90009")
+sleepyFace=Image("00000:"
+                 "99099:"
+                 "00000:"
+                 "99999:"
+                 "00000")
 deadFace=Image("00000:"
                "99099:"
                "90009:"
@@ -50,21 +55,24 @@ hungry=False
 sleepy=False
 death=False
 eyeMovementState=0
-deathTimer=1000
+deathTimer=5000
 eyeMoveChance=0
 eyeMoveState=0
 moodChance=0
 expCap=100
 expCount=0
 level=1
+levelCap=450
 
+display.scroll("Press A to feed the pet, Press B to put it to sleep")
 while True:
     if expCount>=expCap:
-        level+=1
-        expCount=0
-        expCap=expCap*2
-        display.show(lvlUp)
-        sleep(200)
+        if level!=levelCap:
+            level+=1
+            expCount=0
+            expCap=expCap*2
+            display.show(lvlUp)
+            sleep(200)
 
     eyeMoveChance=random.randint(0,100)
     if eyeMoveChance<=10:
@@ -82,15 +90,15 @@ while True:
         else:
             display.show(happyRight)
         sleep(2000)
-
-    if happy==True:
-        moodChance=random.randint(1,50-level)
     
-    if moodChance<=1 and moodChance<=10:
+    if happy==True:
+        moodChance=random.randint(1,500-level)
+    
+    if moodChance>=1 and moodChance<=10:
         happy=False
         hungry=True
         sleepy=False
-    elif moodChance>=10 and moodChance<=20:
+    elif moodChance>10 and moodChance<=20:
         happy=False
         hungry=False
         sleepy=True
@@ -102,22 +110,26 @@ while True:
     if (hungry==True or sleepy==True) and deathTimer==0:
         death=True
     
-    if hungry==True or sleepy==True:
-        display.show(unhappyFace)
+    if hungry==True:
+        display.show(hungryFace)
+        deathTimer-=1
+    
+    if sleepy==True:
+        display.show(sleepyFace)
         deathTimer-=1
     
     if death==True:
         display.show(deadFace)
         music.play(music.FUNERAL)
         sleep(8000)
-        display.scroll("Game Over, you were unable to care for it")
+        display.scroll("Game Over, you reached level " + str(level) + ", you were unable to care for your pet")
 
     if button_a.is_pressed():
         if hungry==True:
             happy=True
             hungry=False
             sleepy=False
-            deathTimer=1000
+            deathTimer=5000
             expCount+=100
             display.show(tick)
             sleep(1000)
@@ -131,7 +143,7 @@ while True:
             happy=True
             hungry=False
             sleepy=False
-            deathTimer=1000
+            deathTimer=5000
             expCount+=100
             display.show(tick)
             sleep(1000)
@@ -139,5 +151,3 @@ while True:
             display.show(cross)
             deathTimer-=5
             sleep(1000)
-
-
