@@ -64,15 +64,15 @@ expCount=0<br>
 level=1<br>
 levelCap=450<br><br>
 
-display.scroll("Press A to feed the pet, Press B to put it to sleep")
-while True:
-    if expCount>=expCap:
-        if level!=levelCap:
-            level+=1
-            expCount=0
-            expCap=expCap*2
-            display.show(lvlUp)
-            sleep(200)
+display.scroll("Press A to feed the pet, Press B to put it to sleep")<br>
+while True:<br>
+    if expCount>=expCap:<br>
+        if level!=levelCap:<br>
+            level+=1<br>
+            expCount=0<br>
+            expCap=expCap*2<br>
+            display.show(lvlUp)<br>
+            sleep(200)<br>
 
     eyeMoveChance=random.randint(0,100)
     if eyeMoveChance<=10:
