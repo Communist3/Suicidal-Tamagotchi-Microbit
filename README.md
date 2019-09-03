@@ -11,7 +11,7 @@ happyFace=Image("00000:"
                 "90009:"
                 "99999")
 happyLeft=Image("00000:"
-                "09090:"
+                "90900:"
                 "00000:"
                 "90009:"
                 "99999")
@@ -151,3 +151,4 @@ while True:
             display.show(cross)
             deathTimer-=5
             sleep(1000)
+
