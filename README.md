@@ -1,5 +1,5 @@
 # Tamagotchi-Microbit
-This is an old school tamagotchi remade using a BBC Microbit.
+This is an old school tamagotchi remade using a BBC Microbit. The player must attempt to keep a digital pet alive for as log as possible. The user must feed the creature and put it to sleep when required to in order to keep it alive, when the correct action is done, the creature gains experience and levels up when the level requirement is met. If the creature is not looked for, it will eventually die and the game will end.<br> 
 The code:                     
 ```python
 from microbit import *
