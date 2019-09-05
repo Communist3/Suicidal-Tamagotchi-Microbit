@@ -1,6 +1,6 @@
 # Tamagotchi-Microbit
-This is an old school Tamagotchi remade using a BBC Microbit. The player must attempt to keep a digital pet alive for as long as possible. The user must feed the creature and put it to sleep, when required, in order to keep it alive. When the correct action is done, the creature gains experience and levels up when the level requirement is met. If the creature is not looked after, it will eventually die and the game will end.<br> 
-The code:                     
+This is an old school Tamagotchi remade using a BBC Microbit. The player must attempt to keep a digital pet alive for as long as possible. The user must feed the creature and put it to sleep, when required, in order to keep it alive. When the correct action is done, the creature gains experience and levels up when the level requirement is met. If the creature is not looked after, it will eventually die and the game will end.<br><br>
+<b>The code:</b>                     
 ```python
 from microbit import *
 import random
@@ -153,9 +153,9 @@ while True:
             sleep(1000)
 
 ```
-Testing Information:<br>
-In order to test the code, we tested how the code would react if the creature started out as either sleepy or hungry, the code was able to handle this, and once the correct response was given, the code functioned as normal. We also tested the difficulty of the game by adjusting how high or low the time taken for the creature to die will be, in order to make the game not too easy, as well as not too difficult. We also tested how often the creature will become sleepy or hungry in order to make the game entertaining as well as have some challenge to it. The main bugs we encountered in creating the project was that the creature would not change its emotion from happy, we fixed this issue by placing all the code in one forever loop.<br><br>
-Possible Expansions:<br>
-In order to add more content to our game, we think that adding mini-games that can be played with the pet could be a way to increase the pets death timer, or even give certain positive effects to the creature, like making the chances of it becoming hungry or sleepy be less for a short amount of time. Another way to expand the game would be to have a set of objectives for the player to have, if they get accomplished, then the player could win the game, as currently the game only ends if the pet dies.<br><br>
-Original doccument:<br>
+<b>Testing Information:</b><br>
+In order to test the code, we tested how the code would react if the creature started out as either sleepy or hungry. The code was able to handle this, and once the correct button was pressed, the code functioned as normal. We also tested the difficulty of the game by adjusting how long or short the time taken for the creature to die will be, in order to make the game not too easy, as well as not too difficult. We also tested how often the creature will become sleepy or hungry in order to make the game entertaining as well as have some challenge to it. The main bugs we encountered in creating the project was that the creature would not change its emotion from happy - we fixed this issue by placing all the code in one forever loop.<br><br>
+<b>Possible Expansions:</b><br>
+In order to add more content to our game, we think that adding mini-games that can be played with the pet could be a way to increase the pet's death timer, or even give certain positive effects to the creature, for example making the chances of it becoming hungry or sleepy be less for a short amount of time. Another way to expand the game would be to have a set of objectives for the player. If the objectives get accomplished, then the player could win the game, as currently the game only ends if the pet dies.<br><br>
+<b>Original doccument:</b><br>
 https://static1.squarespace.com/static/533a5f1be4b00bb34469c085/t/5ae6f3c00e2e72dfd92a15dd/1525085122048/Tamagotchi.pdf 
